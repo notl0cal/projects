@@ -1,7 +1,11 @@
 #!/usr/bin/python
 import sys
 import math
+def exit():
+    sys.exit("Exiting...")
 def intro():
+    y = ["Y", "y", "YES", "yes"]
+    n = ["N", "n", "NO", "no"]
     c = 1
     while c > 0:
         print ("""
@@ -12,23 +16,25 @@ def intro():
         0.) To Exit.\n
         """)
         a = input("Please select an option: ")
-        if a == 1:
+        if a == "1":
             pChange()
             continue
-        if a == 2:
+        if a == "2":
             dca()
             continue
-        if a == 3:
+        if a == "3":
             eMath()
             continue
-        if a == 0:
-            sys.exit("Exiting...")
+        if a == "0":
+            exit()
         else:
             d = input("Not a valid option. Want to try again? (Y/N)")
-            if d != "Y" or "y" or "yes" or "YES":
-                sys.exit("Exiting...")
-            else:
+            if d in y:
                 continue
+            if d in n:
+                exit()
+            else:
+                exit()
 def pChange():
     pc1 = float(input("Enter the current price: "))
     pc2 = float(input("Enter the final price: "))
@@ -42,11 +48,13 @@ def dca():
     input("Press any key to continue...")
 def eMath():
     em1 = float(input("Enter your entry point in dollars:\n$: "))
-    u1 = " per unit"
+    eVol = float(input("Please enter number of units purchased:\nU:"))
     emTake = (em1 * 0.12) + em1
     emStop = em1 - (em1 * 0.06)
-    emProfit = emTake - em1
-    emLoss = em1 - emStop
-    print("Take$: " + str(emTake) + "\n" + "Stop$: " + str(emStop) + "\n" + "Profit$/unit: " + str(emProfit) + "\n" + "Loss$/unit: " + str(emLoss))
+    ePos = em1 * eVol
+    emProfit = (emTake - em1) * eVol
+    emLoss = (em1 - emStop) * eVol
+    eFut = emProfit + ePos
+    print("Position: $" + str(ePos) + "\n" + "Take: $" + str(emTake) + "\n" + "Stop: $" + str(emStop) + "\n" + "Profit: $" + str(emProfit) + "\n" + "Loss: $" + str(emLoss) + "\n" + "Future Position: $" + str(eFut))
     input("Press any key to continue...")
 intro()
