@@ -47,12 +47,18 @@ def pChange():
     pc1 = float(input("Enter the current price: "))
     pc2 = float(input("Enter the final price: "))
     pc2 = (pc1 - pc2) / pc1
-    print("%.0f%%" % (100 * pc2))
+    result = "%.0f%%" % (100 * pc2)
+    print(result)
     input("Press any key to continue...")
 def dca():
     dca1 = [int(x) for x in input("Please enter dollar amounts with spaces inbetween.\n$: ").split()]
     dca2 = (sum(dca1) / len(dca1))
-    print("$" + str(dca2))
+    clear()
+    dca1.sort()
+    values = "Values: $" + str(dca1)
+    result = "Average: $" + str(dca2) + "\n"
+    print(values)
+    print(result)
     input("Press any key to continue...")
 def eMath():
     em1 = float(input("Enter your entry point in dollars:\n$: "))
@@ -63,7 +69,8 @@ def eMath():
     emProfit = (emTake - em1) * eVol
     emLoss = (em1 - emStop) * eVol
     eFut = emProfit + ePos
+    result = "Entry: $" + str(em1) + "\n" + "Position: $" + str(ePos) + "\n" + "Future Position: $" + str(eFut) + "\n\n" + "Take: $" + str(emTake) + "\n" + "Stop: $" + str(emStop) + "\n\n" + "Profit: $" + str(emProfit) + "\n" + "Loss: $" + str(emLoss) + "\n"
     clear()
-    print("Entry: $" + str(em1) + "\n" + "Position: $" + str(ePos) + "\n" + "Future Position: $" + str(eFut) + "\n\n" + "Take: $" + str(emTake) + "\n" + "Stop: $" + str(emStop) + "\n\n" + "Profit: $" + str(emProfit) + "\n" + "Loss: $" + str(emLoss))
+    print(result)
     input("Press any key to continue...")
 intro()
