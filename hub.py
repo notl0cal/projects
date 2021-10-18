@@ -1,6 +1,9 @@
 #!/usr/bin/python
 import sys
+import os
 import math
+def clear():
+    os.system("cls")
 def exit():
     sys.exit("Exiting...")
 def intro():
@@ -17,17 +20,22 @@ def intro():
         """)
         a = input("Please select an option: ")
         if a == "1":
+            clear()
             pChange()
             continue
         if a == "2":
+            clear()
             dca()
             continue
         if a == "3":
+            clear()
             eMath()
             continue
         if a == "0":
+            clear()
             exit()
         else:
+            clear()
             d = input("Not a valid option. Want to try again? (Y/N)")
             if d in y:
                 continue
@@ -43,8 +51,8 @@ def pChange():
     input("Press any key to continue...")
 def dca():
     dca1 = [int(x) for x in input("Please enter dollar amounts with spaces inbetween.\n$: ").split()]
-    dca1 = (sum(dca1) / len(dca1))
-    print("$" + str(dca1))
+    dca2 = (sum(dca1) / len(dca1))
+    print("$" + str(dca2))
     input("Press any key to continue...")
 def eMath():
     em1 = float(input("Enter your entry point in dollars:\n$: "))
@@ -55,6 +63,7 @@ def eMath():
     emProfit = (emTake - em1) * eVol
     emLoss = (em1 - emStop) * eVol
     eFut = emProfit + ePos
-    print("Position: $" + str(ePos) + "\n" + "Take: $" + str(emTake) + "\n" + "Stop: $" + str(emStop) + "\n" + "Profit: $" + str(emProfit) + "\n" + "Loss: $" + str(emLoss) + "\n" + "Future Position: $" + str(eFut))
+    clear()
+    print("Entry: $" + str(em1) + "\n" + "Position: $" + str(ePos) + "\n" + "Future Position: $" + str(eFut) + "\n\n" + "Take: $" + str(emTake) + "\n" + "Stop: $" + str(emStop) + "\n\n" + "Profit: $" + str(emProfit) + "\n" + "Loss: $" + str(emLoss))
     input("Press any key to continue...")
 intro()
