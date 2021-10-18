@@ -53,10 +53,10 @@ def pChange():
 def dca():
     dca1 = [int(x) for x in input("Please enter dollar amounts with spaces inbetween.\n$: ").split()]
     dca2 = (sum(dca1) / len(dca1))
-    clear()
     dca1.sort()
     values = "Values: $" + str(dca1)
     result = "Average: $" + str(dca2) + "\n"
+    clear()
     print(values)
     print(result)
     input("Press any key to continue...")
