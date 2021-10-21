@@ -5,4 +5,4 @@ def palindrome(word:str):
     if word == rword:
         return True
     return False
-print(palindrome("tacocat"))
+print(palindrome("abcdef"))
