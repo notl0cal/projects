@@ -1,4 +1,4 @@
-def vowelcount():
+def vowelcount(word:str):
   vowels = "AEIOUaeiou"
   result = 0
   for num in word:
