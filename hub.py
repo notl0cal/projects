@@ -1,14 +1,22 @@
 #!/usr/bin/python
+#pckg import
 import sys
 import os
 import math
+from sys import platform
+from datetime import datetime
+#global declarations
+y = ["Y", "y", "YES", "yes"]
+n = ["N", "n", "NO", "no"]
+today = datetime.today()
+d1 = today.strftime("\n%d/%m/%Y @ %H:%M:%S")
+#global functions
 def clear():
-    os.system("cls")
+    os.system('cls')
 def exit():
     sys.exit("Exiting...")
+#main function
 def intro():
-    y = ["Y", "y", "YES", "yes"]
-    n = ["N", "n", "NO", "no"]
     c = 1
     while c > 0:
         print ("""
@@ -43,34 +51,52 @@ def intro():
                 exit()
             else:
                 exit()
+#referenced functions
 def pChange():
     pc1 = float(input("Enter the current price: "))
     pc2 = float(input("Enter the final price: "))
     pc2 = (pc1 - pc2) / pc1
-    result = "%.0f%%" % (100 * pc2)
+    result = "%.0f%%" % (-100 * pc2)
     print(result)
-    input("Press any key to continue...")
+    f = input("Do you want to save this file? (Y/N)")
+    if f in y:
+        with open("perchange.log", "a+") as file:
+            file.write(d1 + "\n" + result )
+    else:
+        intro()
 def dca():
     dca1 = [int(x) for x in input("Please enter dollar amounts with spaces inbetween.\n$: ").split()]
     dca2 = (sum(dca1) / len(dca1))
     dca1.sort()
-    values = "Values: $" + str(dca1)
-    result = "Average: $" + str(dca2) + "\n"
+    values = "\nValues: $" + str(dca1)
+    result = "\nAverage: $" + str(dca2) + "\n"
     clear()
     print(values)
     print(result)
-    input("Press any key to continue...")
+    f = input("Do you want to save this file? (Y/N)")
+    if f in y:
+        with open("dollarcostavg.log", "a+") as file:
+            file.write(d1 + values + result)
+    else:
+        intro()
 def eMath():
+    ticker = str(input("Please enter the ticker:\n: "))
     em1 = float(input("Enter your entry point in dollars:\n$: "))
-    eVol = float(input("Please enter number of units purchased:\nU:"))
+    eVol = float(input("Please enter number of units purchased:\nU: "))
     emTake = (em1 * 0.12) + em1
     emStop = em1 - (em1 * 0.06)
     ePos = em1 * eVol
     emProfit = (emTake - em1) * eVol
     emLoss = (em1 - emStop) * eVol
     eFut = emProfit + ePos
-    result = "Entry: $" + str(em1) + "\n" + "Position: $" + str(ePos) + "\n" + "Future Position: $" + str(eFut) + "\n\n" + "Take: $" + str(emTake) + "\n" + "Stop: $" + str(emStop) + "\n\n" + "Profit: $" + str(emProfit) + "\n" + "Loss: $" + str(emLoss) + "\n"
+    result = "\nTicker: " + str(ticker.upper()) + "\n\nEntry: $" + str(em1) + "\nPosition: $" + str(ePos) + "\nFuture Position: $" + str(eFut) + "\n\nTake: $" + str(emTake) + "\nStop: $" + str(emStop) + "\n\nProfit: $" + str(emProfit) + "\nLoss: $" + str(emLoss) + "\n"
     clear()
     print(result)
-    input("Press any key to continue...")
+    f = input("Do you want to save this file? (Y/N)")
+    if f in y:
+        with open("trade.log", "a+") as file:
+            file.write(d1 + result)
+    else:
+        intro()
+#main function call
 intro()
