@@ -50,8 +50,6 @@ def intro():
             d = input("Not a valid option. Want to try again? (Y/N)")
             if d in y:
                 continue
-            if d in n:
-                exit()
             else:
                 exit()
 #referenced functions
