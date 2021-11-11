@@ -9,10 +9,13 @@ from datetime import datetime
 y = ["Y", "y", "YES", "yes"]
 n = ["N", "n", "NO", "no"]
 today = datetime.today()
-d1 = today.strftime("\n%d/%m/%Y @ %H:%M:%S")
+date = today.strftime("\n%d/%m/%Y @ %H:%M:%S")
 #global functions
 def clear():
-    os.system('cls')
+    if "linux" in sys.platform:
+        os.system("clear")
+    if "win32" in sys.platform:
+        os.system("cls")
 def exit():
     sys.exit("Exiting...")
 #main function
@@ -61,7 +64,7 @@ def pChange():
     f = input("Do you want to save this file? (Y/N)")
     if f in y:
         with open("perchange.log", "a+") as file:
-            file.write(d1 + "\n" + result )
+            file.write(date + "\n" + result )
     else:
         intro()
 def dca():
@@ -76,7 +79,7 @@ def dca():
     f = input("Do you want to save this file? (Y/N)")
     if f in y:
         with open("dollarcostavg.log", "a+") as file:
-            file.write(d1 + values + result)
+            file.write(date + values + result)
     else:
         intro()
 def eMath():
@@ -95,7 +98,7 @@ def eMath():
     f = input("Do you want to save this file? (Y/N)")
     if f in y:
         with open("trade.log", "a+") as file:
-            file.write(d1 + result)
+            file.write(date + result)
     else:
         intro()
 #main function call
