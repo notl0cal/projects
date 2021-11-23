@@ -64,9 +64,10 @@ def pChange():
         with open("perchange.log", "a+") as file:
             file.write(date + "\n" + result )
     else:
+        clear()
         intro()
 def dca():
-    dca1 = [int(x) for x in input("Please enter dollar amounts with spaces inbetween.\n$: ").split()]
+    dca1 = [float(x) for x in input("Please enter dollar amounts with spaces inbetween.\n$: ").split()]
     dca2 = (sum(dca1) / len(dca1))
     dca1.sort()
     values = "\nValues: $" + str(dca1)
@@ -79,6 +80,7 @@ def dca():
         with open("dollarcostavg.log", "a+") as file:
             file.write(date + values + result)
     else:
+        clear()
         intro()
 def eMath():
     ticker = str(input("Please enter the ticker:\n: "))
@@ -86,6 +88,7 @@ def eMath():
     eVol = float(input("Please enter number of units purchased:\nU: "))
     eRatio = int(input("""
     Please select a trade ratio.
+    /StopLoss:TakeProfit/
     1.) 3:6
     2.) 6:12
     : """))
@@ -115,6 +118,7 @@ def eMath():
         with open("trade.log", "a+") as file:
             file.write(date + result)
     else:
+        clear()
         intro()
 #main function call
 intro()
