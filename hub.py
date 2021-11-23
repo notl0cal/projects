@@ -88,7 +88,7 @@ def eMath():
     eVol = float(input("Please enter number of units purchased:\nU: "))
     eRatio = int(input("""
     Please select a trade ratio.
-    /StopLoss:TakeProfit/
+    / Stop : Take /
     1.) 3:6
     2.) 6:12
     : """))
