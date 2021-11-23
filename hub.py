@@ -22,7 +22,7 @@ def exit():
 def intro():
     c = 1
     while c > 0:
-        print ("""
+        print("""
         Welcome to Quick Maths!\n
         1.) Percent Change Calculator.\n
         2.) Dollar Cost Averager.\n
@@ -86,12 +86,12 @@ def eMath():
     ticker = str(input("Please enter the ticker:\n: "))
     em1 = float(input("Enter your entry point in dollars:\n$: "))
     eVol = float(input("Please enter number of units purchased:\nU: "))
-    eRatio = int(input("""
-    Please select a trade ratio.
-    / Stop : Take /
+    print("""
+     / Stop : Take /
     1.) 3:6
     2.) 6:12
-    : """))
+    """)
+    eRatio = int(input("Please select a trade ratio: "))
     if eRatio == 1:
         emTake = (em1 * 0.06) + em1
         emStop = em1 - (em1 * 0.03)
