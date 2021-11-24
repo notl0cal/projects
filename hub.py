@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/ env python3
 #pckg import
 import sys
 import os
@@ -18,7 +18,7 @@ def clear():
         os.system("cls")
 def exit():
     sys.exit("Exiting...")
-#main function
+# main logic
 def intro():
     c = 1
     while c > 0:
@@ -118,6 +118,6 @@ def eMath():
         intro()
 #main function call
 def main():
-    intro():
+    intro()
 if __name__ == "__main__":
     main()
