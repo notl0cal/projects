@@ -84,12 +84,29 @@ def eMath():
     ticker = str(input("Please enter the ticker:\n: "))
     em1 = float(input("Enter your entry point in dollars:\n$: "))
     eVol = float(input("Please enter number of units purchased:\nU: "))
-    emTake = (em1 * 0.12) + em1
-    emStop = em1 - (em1 * 0.06)
-    ePos = em1 * eVol
-    emProfit = (emTake - em1) * eVol
-    emLoss = (em1 - emStop) * eVol
-    eFut = emProfit + ePos
+    eRatio = int(input("""
+    Please select a trade ratio.
+    1.) 3:6
+    2.) 6:12
+    : """))
+    if eRatio == 1:
+        emTake = (em1 * 0.06) + em1
+        emStop = em1 - (em1 * 0.03)
+        ePos = em1 * eVol
+        emProfit = (emTake - em1) * eVol
+        emLoss = (em1 - emStop) * eVol
+        eFut = emProfit + ePos
+    elif eRatio == 2:
+        emTake = (em1 * 0.12) + em1
+        emStop = em1 - (em1 * 0.06)
+        ePos = em1 * eVol
+        emProfit = (emTake - em1) * eVol
+        emLoss = (em1 - emStop) * eVol
+        eFut = emProfit + ePos
+    else:
+        input("Not a valid option. Resetting...")
+        clear()
+        eMath()
     result = "\nTicker: " + str(ticker.upper()) + "\n\nEntry: $" + str(em1) + "\nPosition: $" + str(ePos) + "\nFuture Position: $" + str(eFut) + "\n\nTake: $" + str(emTake) + "\nStop: $" + str(emStop) + "\n\nProfit: $" + str(emProfit) + "\nLoss: $" + str(emLoss) + "\n"
     clear()
     print(result)
