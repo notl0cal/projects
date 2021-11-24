@@ -100,4 +100,7 @@ def eMath():
     else:
         intro()
 #main function call
-intro()
+def main():
+    intro():
+if __name__ == "__main__":
+    main()
