@@ -19,9 +19,6 @@ def clear():
         os.system("cls")
 def exit():
     sys.exit("Exiting...")
-<<<<<<< HEAD
-# main logic
-=======
 def resetting(times:int):
     animation = "|/-\\"
     for i in range(times):
@@ -37,7 +34,6 @@ def loading(times:int):
         sys.stdout.flush()
     print("Finished!")
 #main function
->>>>>>> main
 def intro():
     c = 1
     while c > 0:
