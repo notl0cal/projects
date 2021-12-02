@@ -79,7 +79,7 @@ def pChange():
     print(result)
     f = input("Do you want to save this file? (Y/N)")
     if f in y:
-        with open("perchange.log", "a+") as file:
+        with open("trade.log", "a+") as file:
             file.write(date + "\n" + result )
     else:
         clear()
@@ -98,7 +98,7 @@ def dca():
     print(result)
     f = input("Do you want to save this file? (Y/N)")
     if f in y:
-        with open("dollarcostavg.log", "a+") as file:
+        with open("trade.log", "a+") as file:
             file.write(date + values + result)
     else:
         clear()
