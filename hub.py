@@ -42,6 +42,7 @@ def intro():
         1.) Percent Change Calculator.\n
         2.) Dollar Cost Averager.\n
         3.) Entry Maths.\n
+        4.) Interest Calculator.\n
         0.) To Exit.\n
         """)
         a = input("Please select an option: ")
@@ -57,6 +58,10 @@ def intro():
             clear()
             eMath()
             continue
+        if a == "4":
+            clear()
+            iMath()
+            continue
         if a == "0":
             clear()
             exit()
@@ -69,6 +74,7 @@ def intro():
                 exit()
 #referenced functions
 def pChange():
+    func = "Percent Change Calculator"
     pc1 = float(input("Enter the current price: "))
     pc2 = float(input("Enter the final price: "))
     pc2 = (pc1 - pc2) / pc1
@@ -80,12 +86,13 @@ def pChange():
     f = input("Do you want to save this file? (Y/N)")
     if f in y:
         with open("trade.log", "a+") as file:
-            file.write(date + "\n" + result )
+            file.write(date + " | " + func + "\n" + result+ "\n")
     else:
         clear()
         resetting(15)
         intro()
 def dca():
+    func = "Dollar Cost Average"
     dca1 = [float(x) for x in input("Please enter dollar amounts with spaces inbetween.\n$: ").split()]
     dca2 = (sum(dca1) / len(dca1))
     dca1.sort()
@@ -99,12 +106,13 @@ def dca():
     f = input("Do you want to save this file? (Y/N)")
     if f in y:
         with open("trade.log", "a+") as file:
-            file.write(date + values + result)
+            file.write(date + " | " + func + result)
     else:
         clear()
         resetting(15)
         intro()
 def eMath():
+    func = "Entry Maths"
     ticker = str(input("Please enter the ticker:\n: "))
     em1 = float(input("Enter your entry point in dollars:\n$: "))
     eVol = float(input("Please enter number of " + ticker.upper() + " purchased:\n#: "))
@@ -142,7 +150,25 @@ How would you like to setup your trade?
     f = input("Do you want to save this file? (Y/N)")
     if f in y:
         with open("trade.log", "a+") as file:
-            file.write(date + result)
+            file.write(date + " | " + func  + result)
+    else:
+        clear()
+        resetting(15)
+        intro()
+def iMath():
+    func = "Investment Calculator"
+    im1 = float(input("Please enter the interest rate:\n%:"))
+    im2 = float(input("Please enter borrowed amount:\n$: "))
+    clear()
+    loading(7)
+    clear()
+    im3 = (im1 / 100) * im2
+    result = "Interest Expense: $" + str(im3) + "\n"
+    print(result)
+    f = input("Do you want to save this file? (Y/N)")        
+    if f in y:
+        with open("trade.log", "a+") as file:
+            file.write(date + " | " + func + "\n" + result)
     else:
         clear()
         resetting(15)
