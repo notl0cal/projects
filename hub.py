@@ -156,7 +156,7 @@ How would you like to setup your trade?
         resetting(15)
         intro()
 def iMath():
-    func = "Investment Calculator"
+    func = "Interest Calculator"
     im1 = float(input("Please enter the interest rate:\n%:"))
     im2 = float(input("Please enter borrowed amount:\n$: "))
     clear()
