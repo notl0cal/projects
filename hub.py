@@ -25,16 +25,23 @@ def resetting(times:int):
         time.sleep(0.1)
         sys.stdout.write("\r" + "Resetting... " + animation[i % len(animation)])
         sys.stdout.flush()
+    clear()
     print("Finished!")
+    time.sleep(2)
+    clear()
 def loading(times:int):
     animation = "|/-\\"
     for i in range(times):
         time.sleep(0.1)
         sys.stdout.write("\r" + "Doing Maths... " + animation[i % len(animation)])
         sys.stdout.flush()
+        clear()
     print("Finished!")
+    time.sleep(2)
+    clear()
 #main function
 def intro():
+    clear()
     c = 1
     while c > 0:
         print("""
@@ -43,6 +50,7 @@ def intro():
         2.) Dollar Cost Averager.\n
         3.) Entry Maths.\n
         4.) Interest Calculator.\n
+        9.) Read Log.\n
         0.) To Exit.\n
         """)
         a = input("Please select an option: ")
@@ -61,6 +69,10 @@ def intro():
         if a == "4":
             clear()
             iMath()
+            continue
+        if a == "9":
+            clear()
+            readLog()
             continue
         if a == "0":
             clear()
@@ -173,6 +185,12 @@ def iMath():
         clear()
         resetting(15)
         intro()
+def readLog():
+    with open("trade.log", "r") as file:
+        p = file.read()
+        print(p)
+    input("Press enter to continue...")
+    resetting(15)
 #main function call
 def main():
     intro()
