@@ -19,8 +19,10 @@ def harvester(file):
                 d[ip] = 1
     for key, value in sorted(d.items()):
         perc = ((value / count) * 100)
+        print(key + " - " + str(round(perc, 2))+ "%")
         ipsa.append(key)
         ipsp.append(perc)
+    
     fig, ax = plt.subplots(figsize=(16, 9))
     ax.barh(ipsa, ipsp)
     for s in ['top', 'bottom', 'left', 'right']:
@@ -29,7 +31,7 @@ def harvester(file):
     ax.yaxis.set_ticks_position('none')
     ax.xaxis.set_tick_params(pad = 5)
     ax.yaxis.set_tick_params(pad = 10)
-    ax.grid(b = True, color ='grey',
+    ax.grid(visible = True, color ='grey',
         linestyle ='-.', linewidth = 0.5,
         alpha = 0.2)
     ax.invert_yaxis()
@@ -41,13 +43,7 @@ def harvester(file):
     ax.set_title('Harvested IP Addresses',
              loc ='left', )
     plt.show()
-        #print(key + " - " + str(round(perc, 2))+ "%")
     print("Number of IP Addresses: " + str(count))
-
-
-            
-            
-        
 
 def main():
     args = sys.argv[1]
