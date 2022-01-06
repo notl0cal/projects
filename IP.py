@@ -41,7 +41,7 @@ def harvester(file):
                 fontsize = 10, fontweight ='bold',
                 color ='grey')
     ax.set_title('Harvested IP Addresses',
-             loc ='left', )
+                loc ='left', )
     plt.show()
     print("Number of IP Addresses: " + str(count))
 
